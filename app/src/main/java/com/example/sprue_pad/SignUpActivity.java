@@ -1,10 +1,12 @@
 package com.example.sprue_pad;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,7 +22,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     private Button SignUpButton;
     private EditText SignUpEmail, SignUpPassword;
-
+    private TextView loginRedirect;
     private FirebaseAuth mAuth;
 
 
@@ -33,6 +35,7 @@ public class SignUpActivity extends AppCompatActivity {
         SignUpEmail = findViewById(R.id.signUpEmail);
         SignUpPassword = findViewById(R.id.signUpPassword);
         SignUpButton = findViewById(R.id.signUpButton);
+        loginRedirect = findViewById(R.id.loginRedirectText);
 
         SignUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +59,11 @@ public class SignUpActivity extends AppCompatActivity {
                     });
                 }
             }
+        });
+        loginRedirect.setOnClickListener(v -> {
+            Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
         });
     }
 }
