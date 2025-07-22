@@ -23,6 +23,7 @@ public class SignUpActivity extends AppCompatActivity {
     private Button SignUpButton;
     private EditText SignUpEmail, SignUpPassword;
     private TextView loginRedirect;
+
     private FirebaseAuth mAuth;
 
 
