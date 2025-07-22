@@ -12,7 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SpruePad">
         <activity
-            android:name=".ProjectCardOptionsActivity"
+            android:name=".CreateColorPickerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ItemTaskCardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ItemPaintCardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DialogProjectCardOptionsActivity"
             android:exported="false" />
         <activity
             android:name=".CreateProjectActivity"
@@ -33,8 +42,6 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
     </application>
-
 
 </manifest>

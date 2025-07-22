@@ -34,6 +34,12 @@
 
         </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#404040"
+            android:layout_marginBottom="8dp" />
+
         <!-- Grid of Projects -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/project_container"
