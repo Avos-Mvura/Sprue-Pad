@@ -2,14 +2,42 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/loginPage"
     android:orientation="vertical"
     android:padding="24dp"
-    android:gravity="center_vertical">
+    android:gravity="center_vertical"
+    android:background="#212424">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:text="SpruePad"
+            android:textColor="#FFFFFF"
+            android:textSize="75sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp" />
+
+        <View
+            android:id="@+id/bottom_color_bar"
+            android:layout_width="150dp"
+            android:layout_height="2dp"
+            android:layout_marginBottom="32dp"
+            android:background="#00D4D4" />
+    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome Back"
+        android:text="Welcome Back!"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_gravity="center_horizontal"
@@ -19,7 +47,11 @@
         android:id="@+id/loginEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:autofillHints="emailAddress"
         android:hint="Email"
+        android:background="@drawable/input_field_dark"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#ABA9A9"
         android:inputType="textEmailAddress"
         android:layout_marginBottom="16dp"/>
 
@@ -27,7 +59,11 @@
         android:id="@+id/loginPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:autofillHints="Password"
         android:hint="Password"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/input_field_dark"
+        android:textColorHint="#ABA9A9"
         android:inputType="textPassword"
         android:layout_marginBottom="24dp"/>
 
@@ -36,6 +72,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Login"
+        android:backgroundTint="#00bcd4"
         android:textColor="@android:color/white"
         android:layout_marginBottom="16dp"/>
 
@@ -46,7 +83,8 @@
         android:text="Don't have an account? Sign up"
         android:layout_gravity="center_horizontal"
         android:clickable="true"
-        android:focusable="true"/>
+        android:focusable="true"
+        android:textColor="#ABA9A9"  />
 
     <ProgressBar
         android:id="@+id/progressBar"

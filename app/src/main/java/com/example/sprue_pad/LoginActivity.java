@@ -74,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     void redirectToMenuActivity(){
-        Intent intent = new Intent(LoginActivity.this, Menu.class);
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
         finish();
     }
