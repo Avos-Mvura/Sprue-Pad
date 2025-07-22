@@ -11,15 +11,49 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SpruePad">
+
+        <activity
+            android:name=".CreateColorPickerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ItemTaskCardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ItemPaintCardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DialogProjectCardOptionsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CreateProjectActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ItemProjectCardActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
 
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".Menu"
+            android:exported="false" />
+
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
