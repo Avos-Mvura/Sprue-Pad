@@ -59,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
         projectContainer = findViewById(R.id.project_container);
         projectContainer.setLayoutManager(new GridLayoutManager(this, 2));
         sharedPreferences = getSharedPreferences("sprue_pad_pref", MODE_PRIVATE);
-
         createProjectLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
