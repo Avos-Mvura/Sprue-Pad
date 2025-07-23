@@ -1,12 +1,16 @@
 package com.example.sprue_pad;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResultLauncher;
@@ -20,6 +24,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.imageview.ShapeableImageView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.gson.Gson;
 import com.google.common.reflect.TypeToken;
 
@@ -41,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private ActivityResultLauncher<Intent> imagePickerLauncher;
     private ShapeableImageView activeAvatarView;
     private Project activeProject;
+    private ImageButton SignOutButton;
 
     private ActivityResultLauncher<Intent> createProjectLauncher;
 
@@ -59,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
         projectContainer = findViewById(R.id.project_container);
         projectContainer.setLayoutManager(new GridLayoutManager(this, 2));
         sharedPreferences = getSharedPreferences("sprue_pad_pref", MODE_PRIVATE);
+        SignOutButton = findViewById(R.id.signOutButton);
         createProjectLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
@@ -110,6 +117,13 @@ public class MainActivity extends AppCompatActivity {
         addProject.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, CreateProjectActivity.class);
             createProjectLauncher.launch(intent);
+        });
+
+        SignOutButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                signoutconfirmation();
+            }
         });
 
         loadProjects();
@@ -204,5 +218,27 @@ public class MainActivity extends AppCompatActivity {
         intent.setType("image/*");
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         imagePickerLauncher.launch(intent);
+    }
+
+    public void signoutconfirmation() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Confirm Action");
+        builder.setMessage("Are you sure you want to proceed?");
+        FirebaseAuth mAuth;
+        mAuth = FirebaseAuth.getInstance();
+
+        builder.setPositiveButton("Yes", (dialog, which) -> {
+            mAuth.signOut();
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        });
+
+        builder.setNegativeButton("No", (dialog, which) -> {
+            dialog.dismiss();
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }

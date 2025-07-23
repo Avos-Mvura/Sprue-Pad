@@ -53,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 app:counterEnabled="true"
-                app:counterMaxLength="100"
+                app:counterMaxLength="30"
           
                 app:counterTextColor="@color/counter_text"
                 app:boxBackgroundMode="none"
@@ -70,32 +70,7 @@
                     android:padding="12dp"
                     android:textColor="#242424"
                     android:textColorHint="#888888"
-                    android:maxLength="100" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                app:counterEnabled="true"
-                app:counterMaxLength="50"
-          
-                app:counterTextColor="@color/counter_text"
-                app:boxBackgroundMode="none"
-                app:hintEnabled="false">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editBrand"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Brand (e.g. Bandai)"
-                    android:padding="12dp"
-                    android:textColor="#242424"
-                    android:textColorHint="#888888"
-                    android:background="@drawable/input_field"
-                    android:inputType="textCapWords"
-                    android:maxLength="50" />
+                    android:maxLength="30" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -111,15 +86,15 @@
                 app:hintEnabled="false">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editScale"
+                    android:id="@+id/editBrand"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Scale (e.g. 1/144)"
+                    android:hint="Brand (e.g. Bandai)"
                     android:padding="12dp"
                     android:textColor="#242424"
                     android:textColorHint="#888888"
                     android:background="@drawable/input_field"
-                    android:inputType="text"
+                    android:inputType="textCapWords"
                     android:maxLength="30" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -129,7 +104,32 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 app:counterEnabled="true"
-                app:counterMaxLength="75"
+                app:counterMaxLength="10"
+          
+                app:counterTextColor="@color/counter_text"
+                app:boxBackgroundMode="none"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editScale"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Scale (e.g. 1/144)"
+                    android:padding="12dp"
+                    android:textColor="#242424"
+                    android:textColorHint="#888888"
+                    android:background="@drawable/input_field"
+                    android:inputType="text"
+                    android:maxLength="10" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="30"
           
                 app:counterTextColor="@color/counter_text"
                 app:boxBackgroundMode="none"
@@ -145,7 +145,7 @@
                     android:textColorHint="#888888"
                     android:background="@drawable/input_field"
                     android:inputType="textCapWords"
-                    android:maxLength="75" />
+                    android:maxLength="30" />
 
             </com.google.android.material.textfield.TextInputLayout>
 

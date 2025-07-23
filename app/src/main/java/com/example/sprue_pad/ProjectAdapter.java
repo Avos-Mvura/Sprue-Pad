@@ -19,6 +19,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.imageview.ShapeableImageView;
 
 import java.io.IOException;
@@ -41,6 +42,8 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ViewHold
         public ImageButton ivProjectShare;
         public ShapeableImageView cardAvatar;
 
+        public MaterialCardView projectInstance;
+
         public ViewHolder(View view) {
             super(view);
             nameTextView = view.findViewById(R.id.project_name);
@@ -48,6 +51,7 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ViewHold
             ivProjectShare = view.findViewById(R.id.ivProjectShare);
             ivProjectSettings = view.findViewById(R.id.ivProjectSettings);
             cardAvatar = view.findViewById(R.id.tvProjectAvatar);
+            projectInstance = view.findViewById(R.id.projectCard);
         }
 
         private void loadImageSafely(ShapeableImageView imageView, String imagePath, Context context) {
@@ -164,6 +168,14 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ViewHold
                 Intent shareIntent = Intent.createChooser(sendIntent, "Share project via");
                 view1.getContext().startActivity(shareIntent);
             });
+
+            projectInstance.setOnClickListener(v -> {
+                Intent intent = new Intent(context, ProjectContentsActivity.class);
+                intent.putExtra("project", project);
+                context.startActivity(intent);
+
+            });
+
         }
 
 
