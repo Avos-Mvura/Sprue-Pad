@@ -1,6 +1,10 @@
 package com.example.sprue_pad;
 
-public class Project {
+import java.io.Serializable;
+import java.util.UUID;
+
+public class Project implements Serializable {
+    private final String id;
     private String name;
     private String brand;
     private String scale;
@@ -11,6 +15,7 @@ public class Project {
     private int imageResId = R.drawable.default_avatar;
 
     public Project(String name, String brand, String scale, String status, String notes) {
+        this.id = UUID.randomUUID().toString();
         this.name = name;
         this.brand = brand;
         this.scale = scale;
@@ -72,5 +77,9 @@ public class Project {
 
     public void setImageUri(String imageUri) {
         this.imageUri = imageUri;
+    }
+
+    public String getId() {
+        return id;
     }
 }

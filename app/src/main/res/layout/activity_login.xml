@@ -53,7 +53,8 @@
         android:textColor="#FFFFFF"
         android:textColorHint="#ABA9A9"
         android:inputType="textEmailAddress"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp"
+        android:padding="15dp" />
 
     <EditText
         android:id="@+id/loginPassword"
@@ -65,7 +66,8 @@
         android:background="@drawable/input_field_dark"
         android:textColorHint="#ABA9A9"
         android:inputType="textPassword"
-        android:layout_marginBottom="24dp"/>
+        android:layout_marginBottom="24dp"
+        android:padding="15dp"/>
 
     <Button
         android:id="@+id/loginButton"
@@ -80,11 +82,12 @@
         android:id="@+id/signUpRedirectText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Don't have an account? Sign up"
         android:layout_gravity="center_horizontal"
         android:clickable="true"
         android:focusable="true"
-        android:textColor="#ABA9A9"  />
+        android:minHeight="48dp"
+        android:text="Don't have an account? Sign up"
+        android:textColor="#ABA9A9" />
 
     <ProgressBar
         android:id="@+id/progressBar"

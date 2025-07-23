@@ -7,4 +7,6 @@
     <string name="paint_tracker">Paint Tracker</string>
     <string name="choose_color">Choose Color:</string>
     <string name="color_picker_card">Color picker card:</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
