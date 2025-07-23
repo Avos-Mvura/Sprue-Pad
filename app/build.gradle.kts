@@ -47,7 +47,7 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.android.material:material:1.12.0")
     implementation("com.google.code.gson:gson:2.10.1")
-    implementation("com.github.duanhong169:ColorPicker:1.1.6")
+    implementation("com.github.QuadFlask:colorpicker:0.0.15")
     implementation("androidx.cardview:cardview:1.0.0")
 
 }

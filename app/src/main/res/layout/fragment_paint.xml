@@ -43,11 +43,12 @@
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <androidx.recyclerview.widget.RecyclerView
+        <LinearLayout
             android:id="@+id/paint_container"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:orientation="vertical"
             android:clipToPadding="false"
             android:scrollbars="vertical"
             tools:listitem="@layout/item_paint_card"
