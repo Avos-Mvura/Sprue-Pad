@@ -177,9 +177,6 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ViewHold
             });
 
         }
-
-
-
     }
 
     @NonNull
