@@ -14,7 +14,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import top.defaults.colorpicker.ColorPickerPopup;
+import com.flask.colorpicker.ColorPickerView;
+import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
+
 
 public class CreateColorPickerActivity extends AppCompatActivity {
 
@@ -44,22 +46,23 @@ public class CreateColorPickerActivity extends AppCompatActivity {
         mDefaultColor = 0;
 
         //Function to choose paint
-        colorPicker.setOnClickListener(view -> new ColorPickerPopup.Builder(CreateColorPickerActivity.this)
-                .initialColor(Color.RED)
-                .enableBrightness(true)
-                .enableAlpha(true)
-                .okTitle("Choose")
-                .cancelTitle("Cancel")
-                .showIndicator(true)
-                .showValue(true)
-                .build()
-                .show(new ColorPickerPopup.ColorPickerObserver() {
-                    @Override
-                    public void onColorPicked(int color) {
-                        mDefaultColor = color;
-                        mColorPreview.setBackgroundColor(mDefaultColor);
-                    }
-                }));
+        colorPicker.setOnClickListener(view ->
+                ColorPickerDialogBuilder
+                        .with(CreateColorPickerActivity.this)
+                        .setTitle("Choose color")
+                        .initialColor(Color.RED)
+                        .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
+                        .density(12)
+                        .setOnColorSelectedListener(selectedColor -> {
+                        })
+                        .setPositiveButton("ok", (dialog, selectedColor, allColors) -> {
+                            mDefaultColor = selectedColor;
+                            mColorPreview.setBackgroundColor(mDefaultColor);
+                        })
+                        .setNegativeButton("cancel", (dialog, which) -> {})
+                        .build()
+                        .show()
+        );
 
         //Call function to set Paint
         setPaint.setOnClickListener(view -> createPaintCard());
@@ -78,11 +81,16 @@ public class CreateColorPickerActivity extends AppCompatActivity {
             return;
         }
 
+        if (mDefaultColor == 0) {
+            mDefaultColor = Color.RED;
+        }
+
         Intent data = new Intent();
         data.putExtra("name", name);
         data.putExtra("brand", brand);
         data.putExtra("type", type);
         data.putExtra("notes", notes);
+        data.putExtra("color", mDefaultColor);
         setResult(RESULT_OK, data);
         finish();
     }
