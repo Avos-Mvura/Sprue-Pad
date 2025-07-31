@@ -9,33 +9,33 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 public class ProjectPagerAdapter extends FragmentStateAdapter {
 
-    public ProjectPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
-        super(fragmentActivity);
+    private final Project project;
+
+    public ProjectPagerAdapter(@NonNull FragmentActivity fa, Project project) {
+        super(fa);
+        this.project = project;
     }
 
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-
-        Fragment fragment;
         switch (position) {
             case 0:
-                return new Notes_Fragment();
+                return Paint_Fragment.newInstance(project.getId());
             case 1:
-                return new Paint_Fragment();
+                return Paint_Fragment.newInstance(project.getId());
             case 2:
-                return new Notes_Fragment();
+                return Paint_Fragment.newInstance(project.getId());
             case 3:
-                return new Notes_Fragment();
+                return Notes_Fragment.newInstance(project);
             default:
-                return new Notes_Fragment();
+                return new Fragment(); // Fallback
         }
-
-
     }
 
     @Override
     public int getItemCount() {
-        return 4; // Tasks, Paint, Inventory, Notes
+        return 4; // Number of tabs
     }
 }
+

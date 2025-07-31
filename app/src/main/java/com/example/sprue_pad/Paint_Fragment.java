@@ -24,13 +24,14 @@ import java.util.List;
 
 public class Paint_Fragment extends Fragment {
 
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
     private static final String PREFS_NAME = "PaintPrefs";
-    private static final String PAINTS_KEY = "saved_paints";
+    private String getPaintsKey() {
+        return "saved_paints_" + projectId;
+    }
 
-    private String mParam1;
-    private String mParam2;
+    private static final String ARG_PROJECT_ID = "project_id";
+    private String projectId;
+
     private LinearLayout paintsContainer;
     private List<PaintData> savedPaints;
     private ActivityResultLauncher<Intent> createPaintLauncher;
@@ -39,11 +40,10 @@ public class Paint_Fragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static Paint_Fragment newInstance(String param1, String param2) {
+    public static Paint_Fragment newInstance(String projectId) {
         Paint_Fragment fragment = new Paint_Fragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putString(ARG_PROJECT_ID, projectId);
         fragment.setArguments(args);
         return fragment;
     }
@@ -52,8 +52,7 @@ public class Paint_Fragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            projectId = getArguments().getString(ARG_PROJECT_ID);
         }
 
         savedPaints = new ArrayList<>();
@@ -129,13 +128,13 @@ public class Paint_Fragment extends Fragment {
 
         Gson gson = new Gson();
         String json = gson.toJson(savedPaints);
-        editor.putString(PAINTS_KEY, json);
+        editor.putString(getPaintsKey(), json);
         editor.apply();
     }
 
     private void loadPaintsFromPreferences() {
         SharedPreferences prefs = getActivity().getSharedPreferences(PREFS_NAME, getActivity().MODE_PRIVATE);
-        String json = prefs.getString(PAINTS_KEY, "");
+        String json = prefs.getString(getPaintsKey(), "");
 
         if (!json.isEmpty()) {
             Gson gson = new Gson();
@@ -144,6 +143,8 @@ public class Paint_Fragment extends Fragment {
             if (savedPaints == null) {
                 savedPaints = new ArrayList<>();
             }
+        } else {
+            savedPaints = new ArrayList<>();
         }
     }
 

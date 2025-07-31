@@ -32,6 +32,7 @@ public class ProjectContentsActivity extends AppCompatActivity {
 
         Project project = (Project) getIntent().getSerializableExtra("project");
         if (project != null) {
+            Paint_Fragment fragment = Paint_Fragment.newInstance(project.getId());
             projectName = findViewById(R.id.project_content_name);
             projectName.setText(project.getName());
         }
@@ -46,7 +47,7 @@ public class ProjectContentsActivity extends AppCompatActivity {
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         ViewPager2 viewPager = findViewById(R.id.project_content_container);
 
-        ProjectPagerAdapter adapter = new ProjectPagerAdapter(this);
+        ProjectPagerAdapter adapter = new ProjectPagerAdapter(this, project);
         viewPager.setAdapter(adapter);
 
         new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> {

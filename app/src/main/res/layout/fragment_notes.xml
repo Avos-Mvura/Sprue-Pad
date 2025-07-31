@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Notes_Fragment">
+    android:padding="16dp">
 
-    <!-- TODO: Update blank fragment layout -->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/notesCard"
-        android:layout_width="300dp"
-        android:layout_height="200dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
         app:cardCornerRadius="12dp"
         app:cardElevation="4dp"
@@ -20,42 +18,75 @@
             android:id="@+id/layout_project_overview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:padding="16dp">
 
-        <!-- Avatar -->
+            <!-- Project Avatar -->
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/notes_project_avatar"
-                android:layout_marginTop="15dp"
-                android:layout_width="80dp"
-                android:layout_height="120dp"
-                android:layout_gravity="center"
-                android:contentDescription="Project avatar"
-                android:scaleType="centerCrop"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:src="@drawable/default_avatar"
-                app:layout_constraintEnd_toStartOf="@id/notes_project_brand"
+                android:contentDescription="Project Avatar"
+                android:scaleType="centerCrop"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <!-- Project Name -->
+            <TextView
+                android:id="@+id/notes_project_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Project Name"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#000"
+                app:layout_constraintStart_toEndOf="@id/notes_project_avatar"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="16dp" />
 
             <!-- Project Brand -->
             <TextView
                 android:id="@+id/notes_project_brand"
-                android:layout_marginTop="15dp"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Project Brand"
-                android:textSize="22sp"
-                android:textStyle="bold"
+                android:text="Brand"
+                android:textSize="16sp"
+                android:textColor="#555"
+                app:layout_constraintStart_toStartOf="@id/notes_project_name"
+                app:layout_constraintTop_toBottomOf="@id/notes_project_name"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:textColor="@android:color/black"
-                app:layout_constraintStart_toEndOf="@id/notes_project_avatar"
-                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="4dp" />
+
+            <!-- Project Scale -->
+            <TextView
+                android:id="@+id/notes_project_scale"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Scale: 1/100"
+                android:textSize="16sp"
+                android:textColor="#555"
+                app:layout_constraintStart_toStartOf="@id/notes_project_name"
+                app:layout_constraintTop_toBottomOf="@id/notes_project_brand"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="4dp" />
+
+            <!-- Project Description -->
+            <TextView
+                android:id="@+id/notes_project_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Description goes here..."
+                android:textSize="14sp"
+                android:textColor="#444"
+                app:layout_constraintStart_toStartOf="@id/notes_project_name"
+                app:layout_constraintTop_toBottomOf="@id/notes_project_scale"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp" />
-
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
-
-
-</FrameLayout>
+</ScrollView>
