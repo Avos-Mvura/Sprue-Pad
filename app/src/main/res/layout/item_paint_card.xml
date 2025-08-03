@@ -2,7 +2,7 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/paintCard"
-    android:layout_width="400dp"
+    android:layout_width="350dp"
     android:layout_height="135dp"
     android:layout_marginBottom="12dp"
     app:cardCornerRadius="12dp"
@@ -75,7 +75,7 @@
                 android:textSize="14sp" />
         </LinearLayout>
 
-        <!-- Settings Button -->
+        <!-- Delete Button -->
     <LinearLayout
         android:layout_width="50dp"
         android:layout_height="match_parent"
@@ -84,21 +84,13 @@
        >
 
         <ImageButton
-            android:id="@+id/ivPaintSettings"
+            android:id="@+id/ivPaintDelete"
             android:layout_width="50dp"
             android:layout_height="50dp"
 
             android:background="@android:color/transparent"
             android:contentDescription="@string/settings"
-            android:src="@drawable/ic_settings" />
-
-        <ImageButton
-            android:id="@+id/ivPaintShare"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:contentDescription="@string/share"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_share" />
+            android:src="@drawable/ic_delete" />
     </LinearLayout>
     </LinearLayout>
 
