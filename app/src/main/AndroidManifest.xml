@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SpruePad" >
         <activity
-            android:name=".ProjectContentsActivity"
+            android:name=".ProjectContents.ProjectContentsActivity"
             android:exported="false" />
         <activity
             android:name=".CreateColorPickerActivity"

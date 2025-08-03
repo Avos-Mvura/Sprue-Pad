@@ -1,4 +1,4 @@
-package com.example.sprue_pad;
+package com.example.sprue_pad.ProjectContents.Fragments;
 
 import android.os.Bundle;
 
@@ -7,26 +7,26 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
+import com.example.sprue_pad.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Notes_Fragment#newInstance} factory method to
+ * Use the {@link Inventory_Fragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Notes_Fragment extends Fragment {
+public class Inventory_Fragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private Project project;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
-    public Notes_Fragment() {
+    public Inventory_Fragment() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class Notes_Fragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Notes_Fragment.
+     * @return A new instance of fragment Inventory_Fragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static Notes_Fragment newInstance(String param1, String param2) {
-        Notes_Fragment fragment = new Notes_Fragment();
+    public static Inventory_Fragment newInstance(String param1, String param2) {
+        Inventory_Fragment fragment = new Inventory_Fragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -55,24 +55,12 @@ public class Notes_Fragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_notes, container, false);
-
-        Bundle args = getArguments();
-        if (args != null) {
-            project = (Project) args.getSerializable("project");
-
-            if (project != null) {
-                TextView brandName = view.findViewById(R.id.notes_project_brand);
-                brandName.setText(project.getBrand());
-            }
-        }
-
-        return view;
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_inventory_, container, false);
     }
 }

@@ -42,8 +42,8 @@ public class CreateProjectActivity extends AppCompatActivity {
             finish();
         });
 
-        Button saveBtn = findViewById(R.id.btnSaveProject);
-        saveBtn.setOnClickListener(view -> {
+        Button saveButton = findViewById(R.id.btnSaveProject);
+        saveButton.setOnClickListener(view -> {
             createProject();
         });
     }

@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResultLauncher;
@@ -18,6 +19,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.sprue_pad.ProjectContents.ProjectAdapter;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.gson.Gson;
@@ -181,6 +183,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             projectList = new ArrayList<>();
         }
+        Log.e("ProjectList", "Loaded projects: " + json);
     }
 
     public void saveProjects() {

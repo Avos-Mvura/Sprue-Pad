@@ -1,4 +1,4 @@
-package com.example.sprue_pad;
+package com.example.sprue_pad.ProjectContents;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,10 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.example.sprue_pad.MainActivity;
+import com.example.sprue_pad.Project;
+import com.example.sprue_pad.ProjectPagerAdapter;
+import com.example.sprue_pad.R;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 

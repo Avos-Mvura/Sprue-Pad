@@ -1,4 +1,4 @@
-package com.example.sprue_pad;
+package com.example.sprue_pad.ProjectContents;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -19,6 +19,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.sprue_pad.MainActivity;
+import com.example.sprue_pad.Project;
+import com.example.sprue_pad.R;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.imageview.ShapeableImageView;
 

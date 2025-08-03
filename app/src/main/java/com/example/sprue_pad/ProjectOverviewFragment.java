@@ -60,7 +60,6 @@ public class ProjectOverviewFragment extends Fragment {
                 }
             }
         }
-
         return view;
     }
 }
