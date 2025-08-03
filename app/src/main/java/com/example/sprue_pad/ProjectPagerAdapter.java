@@ -8,7 +8,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import com.example.sprue_pad.ProjectContents.Fragments.Inventory_Fragment;
 import com.example.sprue_pad.ProjectContents.Fragments.Notes_Fragment;
 import com.example.sprue_pad.ProjectContents.Fragments.Paint_Fragment;
-import com.example.sprue_pad.ProjectContents.Fragments.Tasks.Tasks_Fragment;
+import com.example.sprue_pad.ProjectContents.Fragments.Tasks_Fragment;
 
 public class ProjectPagerAdapter extends FragmentStateAdapter {
 
@@ -19,7 +19,6 @@ public class ProjectPagerAdapter extends FragmentStateAdapter {
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-
 //        Fragment fragment; ???
         switch (position) {
             case 1:

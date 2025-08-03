@@ -1,23 +1,14 @@
-package com.example.sprue_pad.ProjectContents.Fragments.Tasks;
+package com.example.sprue_pad.ProjectContents.Fragments;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
-import com.example.sprue_pad.ProjectContents.Fragments.Tasks.Model.Task;
 import com.example.sprue_pad.R;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -45,7 +36,7 @@ public class Tasks_Fragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Tasks_Fragment.
+     * @return A new instance of fragment Task_Fragment.
      */
     // TODO: Rename and change types and number of parameters
     public static Tasks_Fragment newInstance(String param1, String param2) {
@@ -56,8 +47,7 @@ public class Tasks_Fragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-    private TaskRecyclerAdapter adapter;
-    private List<Task> tasks;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,26 +56,11 @@ public class Tasks_Fragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        View view = inflater.inflate(R.layout.fragment_tasks, container, false);
-        RecyclerView recyclerView = view.findViewById(R.id.taskRecycler);
-        Button addTasksButton = view.findViewById(R.id.addTasksButton);
-
-        tasks = new ArrayList<>();
-        tasks.add(new Task(false, "Task 1"));
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
-        adapter = new TaskRecyclerAdapter(tasks);
-        recyclerView.setAdapter(adapter);
-
-        addTasksButton.setOnClickListener(v -> {
-            int newTaskPosition = tasks.size() + 1;
-            Task tasks = new Task(false, "New Task");
-            adapter.addTask(tasks);
-        });
-
-        return view;
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_task, container, false);
     }
 }
