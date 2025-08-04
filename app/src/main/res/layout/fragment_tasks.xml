@@ -6,25 +6,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ProjectContents.Fragments.Tasks.Tasks_Fragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/taskRecycler"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewTasks"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/addTasksButton"
+        android:id="@+id/fabAddTask"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
+        android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
-        android:contentDescription="@string/tasks"
-        android:src="@drawable/ic_add"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.97"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.97" />
+        android:src="@android:drawable/ic_input_add"
+        android:backgroundTint="@color/cardview_dark_background"
+        app:tint="@android:color/white" />
 
 </FrameLayout>

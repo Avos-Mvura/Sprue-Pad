@@ -1,27 +1,28 @@
 package com.example.sprue_pad.ProjectContents.Fragments.Tasks.Model;
 
 public class Task {
-    private boolean isCompleted;
-    private String text;
+    private String title;
+    private boolean completed;
 
-    public Task(boolean isCompleted, String text) {
-        this.isCompleted = isCompleted;
-        this.text = text;
+    public Task(String title, boolean completed) {
+        this.title = title;
+        this.completed = completed;
     }
 
-    public String getText() {
-        return text;
+    // Getters and setters
+    public String getTitle() {
+        return title;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public boolean isChecked() {
-        return isCompleted;
+    public boolean isCompleted() {
+        return completed;
     }
 
-    public void setChecked(boolean checked) {
-        this.isCompleted = checked;
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
     }
 }
