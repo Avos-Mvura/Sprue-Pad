@@ -2,10 +2,12 @@ package com.example.sprue_pad.ProjectContents.Fragments.Tasks;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -15,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.sprue_pad.ProjectContents.Fragments.Tasks.Model.Task;
 import com.example.sprue_pad.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,13 +58,13 @@ public class Tasks_Fragment extends Fragment {
         builder.setPositiveButton("Add", (dialog, which) -> {
             String title = input.getText().toString().trim();
             if (!title.isEmpty()) {
-                Task newTask = new Task(title, false);
-                taskList.add(newTask);
-                adapter.notifyItemInserted(taskList.size() - 1);
+                taskList.add(new Task(title, false));
+                adapter.notifyItemInserted(taskList.size());
             }
         });
 
         builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
+
         builder.show();
     }
 }
