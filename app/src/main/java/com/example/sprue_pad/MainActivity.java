@@ -178,7 +178,8 @@ public class MainActivity extends AppCompatActivity {
     private void loadProjects() {
         String json = sharedPreferences.getString(PREF_KEY, null);
         if (json != null) {
-            Type type = new TypeToken<ArrayList<Project>>() {}.getType();
+            Type type = new TypeToken<ArrayList<Project>>() {
+            }.getType();
             projectList = gson.fromJson(json, type);
         } else {
             projectList = new ArrayList<>();

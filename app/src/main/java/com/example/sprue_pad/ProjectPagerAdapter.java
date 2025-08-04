@@ -8,12 +8,18 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import com.example.sprue_pad.ProjectContents.Fragments.Inventory_Fragment;
 import com.example.sprue_pad.ProjectContents.Fragments.Notes_Fragment;
 import com.example.sprue_pad.ProjectContents.Fragments.Paint_Fragment;
+import com.example.sprue_pad.ProjectContents.Fragments.Tasks.Model.Task;
 import com.example.sprue_pad.ProjectContents.Fragments.Tasks.Tasks_Fragment;
 
-public class ProjectPagerAdapter extends FragmentStateAdapter {
+import java.util.Collections;
+import java.util.List;
 
-    public ProjectPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
+public class ProjectPagerAdapter extends FragmentStateAdapter {
+    private Project Project;
+
+    public ProjectPagerAdapter(@NonNull FragmentActivity fragmentActivity, Project project) {
         super(fragmentActivity);
+        this.Project = project;
     }
 
     @NonNull
@@ -30,7 +36,12 @@ public class ProjectPagerAdapter extends FragmentStateAdapter {
                 return new Notes_Fragment();
             case 0:
             default:
-                return new Tasks_Fragment();
+                List<Task> tasks = Collections.emptyList();
+                for (String task :
+                        Project.getTasks()) {
+                    tasks.add(new Task(task, false));
+                }
+                return new Tasks_Fragment(tasks);
         }
     }
 

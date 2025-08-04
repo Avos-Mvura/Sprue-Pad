@@ -38,7 +38,6 @@ public class Paint_Fragment extends Fragment {
     private ActivityResultLauncher<Intent> createPaintLauncher;
 
     public Paint_Fragment() {
-        // Required empty public constructor
     }
 
     public static Paint_Fragment newInstance(String param1, String param2) {
@@ -141,7 +140,8 @@ public class Paint_Fragment extends Fragment {
 
         if (!json.isEmpty()) {
             Gson gson = new Gson();
-            Type type = new TypeToken<List<PaintData>>(){}.getType();
+            Type type = new TypeToken<List<PaintData>>() {
+            }.getType();
             savedPaints = gson.fromJson(json, type);
             if (savedPaints == null) {
                 savedPaints = new ArrayList<>();

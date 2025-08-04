@@ -2,6 +2,7 @@ package com.example.sprue_pad.ProjectContents;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -50,7 +51,7 @@ public class ProjectContentsActivity extends AppCompatActivity {
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         ViewPager2 viewPager = findViewById(R.id.project_content_container);
 
-        ProjectPagerAdapter adapter = new ProjectPagerAdapter(this);
+        ProjectPagerAdapter adapter = new ProjectPagerAdapter(this, project);
         viewPager.setAdapter(adapter);
 
         new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> {
