@@ -8,8 +8,6 @@ public class Task {
         this.title = title;
         this.completed = completed;
     }
-
-    // Getters and setters
     public String getTitle() {
         return title;
     }

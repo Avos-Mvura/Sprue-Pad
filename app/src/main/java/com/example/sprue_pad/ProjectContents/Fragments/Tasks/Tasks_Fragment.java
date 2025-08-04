@@ -1,7 +1,6 @@
 package com.example.sprue_pad.ProjectContents.Fragments.Tasks;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +23,7 @@ public class Tasks_Fragment extends Fragment {
     private RecyclerView recyclerView;
     private TaskAdapter adapter;
     private List<Task> taskList;
-    private FloatingActionButton fabAddTask;
+    private FloatingActionButton addTaskButton;
 
     @Nullable
     @Override
@@ -32,9 +31,8 @@ public class Tasks_Fragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_tasks, container, false);
 
         recyclerView = view.findViewById(R.id.recyclerViewTasks);
-        fabAddTask = view.findViewById(R.id.fabAddTask);
+        addTaskButton = view.findViewById(R.id.addTaskButton);
 
-        // Setup RecyclerView
         taskList = new ArrayList<>();
         taskList.add(new Task("Buy groceries", false));
         taskList.add(new Task("Walk the dog", true));
@@ -44,8 +42,7 @@ public class Tasks_Fragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
         recyclerView.setAdapter(adapter);
 
-        // Set up FAB click listener
-        fabAddTask.setOnClickListener(v -> showAddTaskDialog());
+        addTaskButton.setOnClickListener(v -> showAddTaskDialog());
 
         return view;
     }
@@ -54,12 +51,10 @@ public class Tasks_Fragment extends Fragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
         builder.setTitle("Add New Task");
 
-        // Input field
         EditText input = new EditText(requireContext());
         input.setHint("Enter task title");
         builder.setView(input);
 
-        // Add buttons
         builder.setPositiveButton("Add", (dialog, which) -> {
             String title = input.getText().toString().trim();
             if (!title.isEmpty()) {
@@ -70,7 +65,6 @@ public class Tasks_Fragment extends Fragment {
         });
 
         builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
-
         builder.show();
     }
 }
