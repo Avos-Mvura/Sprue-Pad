@@ -34,9 +34,6 @@ public class Tasks_Fragment extends Fragment {
         addTaskButton = view.findViewById(R.id.addTaskButton);
 
         taskList = new ArrayList<>();
-        taskList.add(new Task("Buy groceries", false));
-        taskList.add(new Task("Walk the dog", true));
-        taskList.add(new Task("Read a book", false));
 
         adapter = new TaskAdapter(taskList);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
@@ -60,7 +57,7 @@ public class Tasks_Fragment extends Fragment {
             if (!title.isEmpty()) {
                 Task newTask = new Task(title, false);
                 taskList.add(newTask);
-                adapter.notifyItemInserted(taskList.size() - 1); // Notify adapter
+                adapter.notifyItemInserted(taskList.size() - 1);
             }
         });
 
